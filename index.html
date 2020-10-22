@@ -73,20 +73,21 @@
 
 				<input type="radio" id="selection_converter_version_1_7" 
 					name="selection_converter_version" value="all">
-					<label for="selection_converter_version_1_7" class="left">
+				<label for="selection_converter_version_1_7" class="left">
 					<span class="title">PotreeConverter 1.7</span>
 					<ul>
-						<li>Older version that generates 1 file per octree node.</li>
-						<li>Try of PotreeConverter 2.0 causes issues.</li>
+						<li>Free</li>
 					</ul>
 				</label>
 
 				<input type="radio" id="selection_converter_version_2_0" 
 					name="selection_converter_version" value="false" checked>
-					<label for="selection_converter_version_2_0" class="right" >
+				<label for="selection_converter_version_2_0" class="right" >
 					<span class="title">PotreeConverter 2.0</span>
 					<ul>
-						<li>Complete rewrite that generates a total of 3 files instead of thousands to millions.</li>
+						<li>Free for non-commercial and non-government</li>
+						<li>Three month trial period</li>
+						<li>See <a href="https://github.com/potree/PotreeConverter" target="_blank">PotreeConverter at GitHub</a></li>
 					</ul>
 				</label>
 
@@ -279,53 +280,53 @@
 		// load a file from your disc or USB drive:
 		//Potree.loadPointCloud("C:/dev/workspaces/potree/develop/pointclouds/lion_takanawa/cloud.js", "Point Cloud Name", function(e){
 		
-		//Potree.loadPointCloud("http://5.9.65.151/mschuetz/potree/resources/pointclouds/archpro/heidentor/cloud.js", "Point Cloud Name", function(e){
-		//	viewer.scene.addPointCloud(e.pointcloud);
-		//	e.pointcloud.position.z = 0;
-		//	let material = e.pointcloud.material;
-		//	material.size = 1;
-		//	material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
+		Potree.loadPointCloud("http://5.9.65.151/mschuetz/potree/resources/pointclouds/archpro/heidentor/cloud.js", "Point Cloud Name", function(e){
+			viewer.scene.addPointCloud(e.pointcloud);
+			e.pointcloud.position.z = 0;
+			let material = e.pointcloud.material;
+			material.size = 1;
+			material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
 
-		//	viewer.scene.view.position.set(13.856734292740617, -9.125174923658731, 14.563928417406354);
-		//	viewer.scene.view.lookAt(-3.5482630104475366, 2.728596783815762, 6.1406044783018725);
-		//});
+			viewer.scene.view.position.set(13.856734292740617, -9.125174923658731, 14.563928417406354);
+			viewer.scene.view.lookAt(-3.5482630104475366, 2.728596783815762, 6.1406044783018725);
+		});
 		
 		
 
 		//Potree.loadPointCloud("C:/dev/pointclouds/ot_35120C7102A_1/cloud.js", "CA13", e => {
-		////Potree.loadPointCloud("../pointclouds/C/dev/pointclouds/test/cloud.js", "sigeom.sa", e => {
-		//	let scene = viewer.scene;
-		//	let pointcloud = e.pointcloud;
-		//	
-		//	let material = pointcloud.material;
-		//	material.size = 3;
-		//	material.pointSizeType = Potree.PointSizeType.FIXED;
-		//	material.pointColorType = Potree.PointColorType.SOURCE;
-		//	material.shape = Potree.PointShape.SQUARE;
-		//	
-		//	scene.addPointCloud(pointcloud);
-		//	
-		//	scene.view.position.set(693195.575, 3915628.878, 472.872);
-		//	scene.view.lookAt(693747.110, 3916033.332, 33.996);
-		//});
+		Potree.loadPointCloud("../pointclouds/C/dev/pointclouds/test/cloud.js", "sigeom.sa", e => {
+			let scene = viewer.scene;
+			let pointcloud = e.pointcloud;
+			
+			let material = pointcloud.material;
+			material.size = 3;
+			material.pointSizeType = Potree.PointSizeType.FIXED;
+			material.pointColorType = Potree.PointColorType.SOURCE;
+			material.shape = Potree.PointShape.SQUARE;
+			
+			scene.addPointCloud(pointcloud);
+			
+			scene.view.position.set(693195.575, 3915628.878, 472.872);
+			scene.view.lookAt(693747.110, 3916033.332, 33.996);
+		});
 
 		
-		// viewer.onGUILoaded(() => {
-		// 	let message = `
-		// 	Welcome to Potree Desktop.<br>
-		// 	<p>
-		// 	This portable version can be used to load <a href="https://github.com/potree/PotreeConverter", target="_blank"> converted point clouds</a>
-		// 	directly from disk. Just drag & drop a cloud.js file, or it's parent folder, into this window.
-		// 	</p>
+		viewer.onGUILoaded(() => {
+			let message = `
+			Welcome to Potree Desktop.<br>
+			<p>
+			This portable version can be used to load <a href="https://github.com/potree/PotreeConverter", target="_blank"> converted point clouds</a>
+			directly from disk. Just drag & drop a cloud.js file, or it's parent folder, into this window.
+			</p>
 
-		// 	<p>
-		// 	You can set up a default scene by modifying the index.html file in the potree desktop folder. 
-		// 	</p>
-		// 	`;
+			<p>
+			You can set up a default scene by modifying the index.html file in the potree desktop folder. 
+			</p>
+			`;
 
-		// 	//viewer.postMessage(message);
-		// 	viewer.postMessage(message, {duration: 15000});
-		// });
+			//viewer.postMessage(message);
+			viewer.postMessage(message, {duration: 15000});
+		});
 
 		window.addEventListener('error', (e) => {
 			//console.log(e);
